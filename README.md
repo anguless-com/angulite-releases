@@ -20,6 +20,26 @@ Windows & macOS.
 
 ### 🔒 Kiểm tra file (khuyến khích) / Verify your download
 
+**Quét virus / Virus scan** — kết quả VirusTotal cho đúng 3 file ở bảng trên:
+
+| File | VirusTotal |
+|---|---|
+| `AnguLite_0.3.4_x64-setup.exe` | [xem kết quả](https://www.virustotal.com/gui/file/ee4674fc1d90b64062df02d1a6399a3561fc569f307529a39b1b954c697e5f2b) |
+| `AnguLite_0.3.4_aarch64.dmg` | [xem kết quả](https://www.virustotal.com/gui/file/f8a06190f47bd0a197fafa315dba7328447739187d044908cbeab4217d08836c) |
+| `AnguLite_0.3.4_x64.dmg` | [xem kết quả](https://www.virustotal.com/gui/file/3748d6b372c2ff57d1af6d2f20b15e8901d50cd5d6cc0cb3b2102ab4be0d3a16) |
+
+> Link trỏ theo mã SHA256 bên dưới, nên nó luôn ứng với **đúng** file bạn tải — không phải
+> một bản build khác.
+
+**Hai file `.dmg` cho macOS: 0/61 — sạch tuyệt đối.**
+
+**File `.exe` cho Windows: 2/70.** Nói thẳng để bạn khỏi bất ngờ khi tự quét: hai cảnh báo
+đó là **suy đoán tự động dành cho ứng dụng chưa mua chứng chỉ ký số**, không phải phát hiện
+mã độc thật — Sophos xếp loại "PUA" (phần mềm *có thể* không mong muốn), SecureAge là engine
+nhỏ vốn hay báo nhầm với file chưa ký. **Microsoft Defender — chính công cụ quét máy bạn —
+cùng Kaspersky, BitDefender, ESET, Avast, Malwarebytes, Symantec và 62 engine khác đều báo
+sạch.** Đây cũng đúng là lý do trang này công bố SHA256: để bạn không phải tin lời chúng tôi.
+
 **SHA256** — so sánh với file bạn vừa tải để chắc chắn không bị sửa đổi:
 
 ```
@@ -58,7 +78,7 @@ chưa mua — khi app có người dùng thật, đây là khoản đầu tư đ
 
 Để cài: bấm **More info** → **Run anyway**.
 
-Không yên tâm? Kiểm tra SHA256 ở trên trước khi cài.
+Không yên tâm? Kiểm tra SHA256 ở trên và xem link VirusTotal trước khi cài.
 
 ### macOS — về cảnh báo Gatekeeper
 
@@ -115,6 +135,30 @@ Mở khoá **vĩnh viễn**, trả một lần. Không mua thì 13 tool trên v�
 
 ---
 
+## 🖼️ Ảnh màn hình / Screenshots
+
+**Kho tool — 15 tool, mở thẳng không cần cài từng cái**
+*The tool catalogue — open any of them in one click.*
+
+![Kho tool AnguLite](docs/screenshots/01-store.png)
+
+**Text Tools — đếm từ, đổi chữ hoa/thường, so sánh, sắp xếp**
+*Text Tools — word count, case conversion, diff and sorting, updating as you type.*
+
+![Text Tools](docs/screenshots/02-text-tools.png)
+
+**QR Code — tạo mã QR từ link, WiFi, danh thiếp**
+*QR Code — generate codes from a link, WiFi credentials or a contact card.*
+
+![QR Code](docs/screenshots/04-qr-code.png)
+
+**Color Picker — đổi HEX/RGB/HSL và kiểm tra độ tương phản**
+*Color Picker — convert between formats and check text contrast.*
+
+![Color Picker](docs/screenshots/05-color-picker.png)
+
+---
+
 ## ❓ Câu hỏi thường gặp / FAQ
 
 <details>
@@ -122,7 +166,7 @@ Mở khoá **vĩnh viễn**, trả một lần. Không mua thì 13 tool trên v�
 
 Không. Cảnh báo đó xuất hiện vì app **chưa được ký số**, không phải vì phát hiện mã độc —
 Windows SmartScreen cảnh báo với mọi ứng dụng lạ chưa mua chứng chỉ. Bạn có thể tự kiểm chứng
-bằng SHA256 ở trên.
+bằng SHA256 ở trên và link VirusTotal.
 </details>
 
 <details>
