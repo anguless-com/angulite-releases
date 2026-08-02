@@ -1,3 +1,46 @@
+<!--
+  SOURCE OF TRUTH for the PUBLIC mirror repo README (anguless-com/angulite-releases).
+  Edit here, then publish to the mirror. Keeping it version-controlled here means the
+  download page can't silently drift from what actually shipped.
+
+  Per release, update: (1) the version + date, (2) the download table's SHA256 values,
+  (3) the Changelog section (excerpt from CHANGELOG.md).
+
+  Compute checksums from the PUBLISHED artifacts, never from a local build:
+    gh release download vX.Y.Z --repo anguless-com/angulite-releases \
+      --pattern "*.dmg" --pattern "*-setup.exe"
+    sha256sum AnguLite_*.dmg AnguLite_*-setup.exe
+
+  PUBLISHED WHOLE 2026-07-29 as mirror commit 2d96a40 (README 8479 -> 10830 bytes).
+  No drift: the live page and this file are the same content. The earlier TRIMMED
+  variant (c9c5843, 2026-07-28) is superseded.
+
+  The four screenshots live in the mirror at docs/screenshots/*.png (commits 6799c27,
+  e77eebc, 85c1189, 1b02531). Image paths in this file are relative to the MIRROR, so
+  if you ever re-publish, push changed images BEFORE the README or the page renders
+  broken images in the gap.
+
+  2026-08-03 — the two .dmg files were RE-NOTARIZED and re-uploaded (they had shipped
+  unnotarized; tauri-action does the .app, never the .dmg — see
+  .agl/memory/runbook-dmg-notarization.md). Stapling rewrites the file, so both .dmg
+  SHA256 values below are NEW and their VirusTotal permalinks now point at the
+  pre-notarization build. TODO: re-scan both .dmg on virustotal.com and replace the two
+  links + drop the explanatory note under the VT table. The .exe was not touched.
+    aarch64.dmg  f8a06190… -> d36c56c2d500700262a3ce0d54c7df4c1578184927e43b2af2aabf4a50be4c8d
+    x64.dmg      3748d6b3… -> 2f69a426a0029295546d178fd92d9a1fb86dc5717a6585a0def242e4c2cb525c
+
+  VirusTotal 2026-07-29 — permalinks keyed by SHA256. Still exact for the .exe; for the
+  two .dmg they describe the same v0.3.4 build before notarization:
+    x64-setup.exe  2/70   Sophos "Generic ML PUA", SecureAge generic. Both are
+                          heuristics for an UNSIGNED installer, not real detections;
+                          Microsoft/Kaspersky/BitDefender/ESET all clean.
+    aarch64.dmg    0/61
+    x64.dmg        0/61
+  The .exe's 2/70 is direct evidence for the WIN-sign backlog item: code-signing would
+  clear both these flags and the SmartScreen warning in one purchase. A NEW RELEASE
+  NEEDS NEW SCANS — the hashes change, so these links will not cover it.
+-->
+
 # AnguLite
 
 **Bộ công cụ desktop cho dân làm online.** 13 tool miễn phí, chạy offline, không cần đăng ký.
@@ -25,11 +68,16 @@ Windows & macOS.
 | File | VirusTotal |
 |---|---|
 | `AnguLite_0.3.4_x64-setup.exe` | [xem kết quả](https://www.virustotal.com/gui/file/ee4674fc1d90b64062df02d1a6399a3561fc569f307529a39b1b954c697e5f2b) |
-| `AnguLite_0.3.4_aarch64.dmg` | [xem kết quả](https://www.virustotal.com/gui/file/f8a06190f47bd0a197fafa315dba7328447739187d044908cbeab4217d08836c) |
-| `AnguLite_0.3.4_x64.dmg` | [xem kết quả](https://www.virustotal.com/gui/file/3748d6b372c2ff57d1af6d2f20b15e8901d50cd5d6cc0cb3b2102ab4be0d3a16) |
+| `AnguLite_0.3.4_aarch64.dmg` | [xem kết quả](https://www.virustotal.com/gui/file/f8a06190f47bd0a197fafa315dba7328447739187d044908cbeab4217d08836c) — quét *trước* khi công chứng |
+| `AnguLite_0.3.4_x64.dmg` | [xem kết quả](https://www.virustotal.com/gui/file/3748d6b372c2ff57d1af6d2f20b15e8901d50cd5d6cc0cb3b2102ab4be0d3a16) — quét *trước* khi công chứng |
 
-> Link trỏ theo mã SHA256 bên dưới, nên nó luôn ứng với **đúng** file bạn tải — không phải
-> một bản build khác.
+> **Về hai link `.dmg`:** ngày 2026-08-03 chúng tôi công chứng (notarize) lại hai file
+> `.dmg` với Apple để bạn không còn gặp cảnh báo Gatekeeper khi mở. Việc đó **ghi thêm
+> vé công chứng vào file**, nên mã SHA256 của nó đổi — hai link VirusTotal ở trên là kết
+> quả quét của **cùng bản v0.3.4 đó trước khi công chứng**, không khớp mã SHA256 mới bên
+> dưới. Phần mềm bên trong không đổi một byte nào; bản quét mới đang chờ cập nhật.
+>
+> Link của file `.exe` vẫn khớp chính xác — file đó không bị đụng tới.
 
 **Hai file `.dmg` cho macOS: 0/61 — sạch tuyệt đối.**
 
@@ -44,8 +92,8 @@ sạch.** Đây cũng đúng là lý do trang này công bố SHA256: để bạ
 
 ```
 ee4674fc1d90b64062df02d1a6399a3561fc569f307529a39b1b954c697e5f2b  AnguLite_0.3.4_x64-setup.exe
-f8a06190f47bd0a197fafa315dba7328447739187d044908cbeab4217d08836c  AnguLite_0.3.4_aarch64.dmg
-3748d6b372c2ff57d1af6d2f20b15e8901d50cd5d6cc0cb3b2102ab4be0d3a16  AnguLite_0.3.4_x64.dmg
+d36c56c2d500700262a3ce0d54c7df4c1578184927e43b2af2aabf4a50be4c8d  AnguLite_0.3.4_aarch64.dmg
+2f69a426a0029295546d178fd92d9a1fb86dc5717a6585a0def242e4c2cb525c  AnguLite_0.3.4_x64.dmg
 ```
 
 <details>
